@@ -55,16 +55,19 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /*Single Player Button onClick*/
     public void singlePlayer(View view) {
-        Intent intent = new Intent(this, SinglePlayerMode.class);
+        Intent intent = new Intent(this, SinglePlayer.class);
         startActivity(intent);
     }
 
+    /*Multi-Player Button onClick*/
     public void multiPlayer(View view) {
         Intent intent = new Intent(this, Multiplayer.class);
         startActivity(intent);
     }
 
+    /*Statistics Button onClick*/
     public void statistics(View view) {
         Intent intent = new Intent(this, Statistics.class);
         startActivity(intent);
