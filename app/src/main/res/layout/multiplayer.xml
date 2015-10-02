@@ -16,20 +16,23 @@
         android:layout_height="wrap_content"
         android:text="2 Player Mode"
         android:id="@+id/twoPlayerButton"
-        android:layout_weight=".33" />
+        android:layout_weight=".33"
+        android:onClick="playerSelection" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="3 Player Mode"
         android:id="@+id/threePlayerButton"
-        android:layout_weight=".33" />
+        android:layout_weight=".33"
+        android:onClick="playerSelection" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="4 Player Mode"
         android:id="@+id/fourPlayerButton"
-        android:layout_weight=".33" />
+        android:layout_weight=".33"
+        android:onClick="playerSelection" />
 
 </LinearLayout>

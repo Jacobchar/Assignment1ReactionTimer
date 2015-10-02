@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+
 import java.util.Random;
 
 /**
@@ -20,6 +21,7 @@ public class SinglePlayer extends AppCompatActivity {
     protected long startTime;
     private int GREY = 0xff444444;
     private int GREEN = 0xff00ff00;
+    private int BLACK = 0xff000000;
 
 
     /*The following two methods are necessary to create the screen and handle the options menu*/
@@ -37,7 +39,6 @@ public class SinglePlayer extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
@@ -72,13 +73,14 @@ public class SinglePlayer extends AppCompatActivity {
         int delay = i.nextInt(max-min) + min;
 
         final Button button = (Button) findViewById(R.id.singleplayerReactionButton);
+        button.setBackgroundColor(GREY);
+        button.setTextColor(BLACK);
         button.setText("Get Ready...");
 
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                button.setBackgroundColor(GREY);
                 button.setText("REACT");
                 button.setTextColor(GREEN);
                 startTime = System.currentTimeMillis();
@@ -90,7 +92,7 @@ public class SinglePlayer extends AppCompatActivity {
 
         final Button button = (Button) findViewById(R.id.singleplayerReactionButton);
 
-        if (button.getCurrentTextColor() != GREY){
+        if (button.getCurrentTextColor() != GREEN){
             resultDialog(-1);
         } else {
             resultDialog(System.currentTimeMillis());
