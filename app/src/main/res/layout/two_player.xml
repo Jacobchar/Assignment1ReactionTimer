@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Player 2"
-        android:id="@+id/p2Mode2Button"
+        android:id="@+id/p2ModeTwoButtonn"
         android:layout_weight="0.5"
         android:onClick="declareWinner" />
 
