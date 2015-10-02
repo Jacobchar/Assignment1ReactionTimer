@@ -28,6 +28,19 @@
             android:name=".Statistics"
             android:label="Statistics">
         </activity>
+        <activity
+            android:name=".TwoPlayer"
+            android:label="Two Player">
+        </activity>
+        <activity
+            android:name=".ThreePlayer"
+            android:label="Three Player">
+        </activity>
+        <activity
+            android:name=".FourPlayer"
+            android:label="Four Player">
+        </activity>
+
     </application>
 
 </manifest>
