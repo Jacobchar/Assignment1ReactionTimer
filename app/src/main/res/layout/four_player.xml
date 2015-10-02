@@ -17,7 +17,8 @@
         android:text="Player 1"
         android:id="@+id/p1ModeFourButton"
         android:layout_gravity="center_horizontal"
-        android:layout_weight=".25" />
+        android:layout_weight=".25"
+        android:onClick="declareWinner" />
 
     <Button
         android:layout_width="match_parent"
@@ -25,7 +26,8 @@
         android:text="Player 2"
         android:id="@+id/p2ModeFourButton"
         android:layout_gravity="center_horizontal"
-        android:layout_weight=".25" />
+        android:layout_weight=".25"
+        android:onClick="declareWinner" />
 
     <Button
         android:layout_width="match_parent"
@@ -33,7 +35,8 @@
         android:text="Player 3"
         android:id="@+id/p3ModeFourButton"
         android:layout_gravity="center_horizontal"
-        android:layout_weight=".25" />
+        android:layout_weight=".25"
+        android:onClick="declareWinner" />
 
     <Button
         android:layout_width="match_parent"
@@ -41,5 +44,6 @@
         android:text="Player 4"
         android:id="@+id/p4ModeFourButton"
         android:layout_gravity="center_horizontal"
-        android:layout_weight=".25" />
+        android:layout_weight=".25"
+        android:onClick="declareWinner" />
 </LinearLayout>

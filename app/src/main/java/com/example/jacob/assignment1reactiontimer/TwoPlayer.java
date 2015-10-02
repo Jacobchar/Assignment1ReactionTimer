@@ -1,8 +1,12 @@
 package com.example.jacob.assignment1reactiontimer;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 /**
  * Created by Jacob on 2015-10-01.
@@ -30,6 +34,21 @@ public class TwoPlayer extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void declareWinner(View view) {
 
+        Button button = (Button) view;
+        String player = (String) button.getText();
+        String message = player + " was victorious!";
 
+        final AlertDialog result = new AlertDialog.Builder(this).create();
+        result.setTitle("Winner:");
+        result.setMessage(message);
+        result.setButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        result.show();
+    }
 }
