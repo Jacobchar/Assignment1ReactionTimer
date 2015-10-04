@@ -31,22 +31,23 @@ public class MultiplayerButton {
     private Button button;
     private Integer player, gameMode;
     private Context buttonContext;
-    //private GameWinner gameWinner = GameWinner.getInstance();
+    private MultiplayerResults gameWinner = MultiplayerResults.getGame();
 
 
     public MultiplayerButton(Button button, final Integer player, final Integer gameMode, final Context buttonContext){
 
+        this.player = player;
+        this.gameMode = gameMode;
+        this.buttonContext = buttonContext;
         this.button = button;
+
         this.button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 declareWinner();
-                //gameWinner.addWinner(gameMode, player, buttonContext);
+                gameWinner.addWinner(gameMode, player, buttonContext);
             }
         });
-        this.player = player;
-        this.gameMode = gameMode;
-        this.buttonContext = buttonContext;
     }
 
     public void declareWinner() {

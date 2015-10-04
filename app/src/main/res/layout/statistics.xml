@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Statistics"
+        android:id="@+id/statisticsTtextView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Single Player"
+        android:id="@+id/singlePlayerStatsbutton"
+        android:layout_marginTop="106dp"
+        android:layout_below="@+id/statisticsTtextView"
+        android:layout_centerHorizontal="true"
+        android:onClick="statSelection" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Multiplayer"
+        android:id="@+id/multiplayerStatsButton"
+        android:layout_below="@+id/singlePlayerStatsbutton"
+        android:layout_alignStart="@+id/singlePlayerStatsbutton"
+        android:layout_marginTop="130dp"
+        android:layout_alignEnd="@+id/singlePlayerStatsbutton"
+        android:onClick="statSelection"/>
+</RelativeLayout>

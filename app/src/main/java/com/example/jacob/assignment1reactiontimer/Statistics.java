@@ -17,10 +17,13 @@
  */
 package com.example.jacob.assignment1reactiontimer;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 /**
  * Created by Jacob on 2015-10-01.
@@ -53,6 +56,23 @@ public class Statistics extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void statSelection(View view){
+
+        Button button = (Button) view;
+        Intent intent;
+
+        switch(button.getId()) {
+            case R.id.singlePlayerStatsbutton:
+                intent = new Intent(this, SinglePlayerStats.class);
+                startActivity(intent);
+                break;
+            case R.id.multiplayerStatsButton:
+                intent = new Intent(this, MultiplayerStats.class);
+                startActivity(intent);
+                break;
+        }
     }
 
 }

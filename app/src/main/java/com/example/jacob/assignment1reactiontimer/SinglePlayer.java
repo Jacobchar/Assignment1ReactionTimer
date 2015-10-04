@@ -29,6 +29,7 @@ import android.view.View;
 import android.widget.Button;
 
 
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -40,6 +41,8 @@ public class SinglePlayer extends AppCompatActivity {
     private int GREY = 0xff444444;
     private int GREEN = 0xff00ff00;
     private int BLACK = 0xff000000;
+    private long reactionTime;
+    private ArrayList<Long> reactionTimes = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -125,16 +128,19 @@ public class SinglePlayer extends AppCompatActivity {
 
     protected void resultDialog(long endTime){
 
+        reactionTime = (endTime - startTime);
+
         String message;
         if(endTime == -1){
             message = "You jumped the gun!";
         } else {
-            message = "Your reaction time was: " + (endTime - startTime) + "ms";
+            message = "Your reaction time was: " + reactionTime + "ms";
         }
 
         final AlertDialog result = new AlertDialog.Builder(this).create();
         result.setMessage(message);
         result.show();
+        reactionTimes.add(reactionTime);
 
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
@@ -145,4 +151,8 @@ public class SinglePlayer extends AppCompatActivity {
             }
         }, 2000);
     }
+    public ArrayList<Long> getReactionTimes() {
+        return reactionTimes;
+    }
+
 }
