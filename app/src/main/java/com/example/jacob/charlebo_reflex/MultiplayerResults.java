@@ -100,7 +100,6 @@ public class MultiplayerResults {
         ArrayList<Integer> winner = this.multiplayerResults.get(gameMode);
         if (winner == null){
             winner = new ArrayList<>();
-            winner.add(player);
         }
         winner.add(player);
         this.multiplayerResults.put(gameMode, winner);

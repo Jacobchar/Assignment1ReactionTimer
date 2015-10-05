@@ -10,14 +10,16 @@
         android:text="Reaction Times"
         android:id="@+id/reactionTextView"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:layout_centerHorizontal="true" />
 
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:background="#000000"
         android:rowCount="5"
         android:columnCount="4"
-        android:id="@+id/gridView"
+        android:id="@+id/gridViewReaction"
         android:orientation="horizontal"
         android:rowOrderPreserved="false"
         android:columnOrderPreserved="false"
@@ -30,71 +32,91 @@
         <TextView
             android:text=""
             android:textSize="17sp"
-            android:id="@+id/blank"/>
+            android:id="@+id/blank"
+            android:background="#f00"/>
         <TextView
             android:text="All Results"
             android:textSize="17sp"
-            android:id="@+id/allResultsTextView"/>
+            android:id="@+id/allResultsTextView"
+            android:background="#FAEBD7"/>
         <TextView
             android:text="Last 10"
             android:textSize="17sp"
-            android:id="@+id/last10Textview"/>
+            android:id="@+id/last10Textview"
+            android:background="#FAEBD7"/>
         <TextView
             android:text="Last 100"
             android:textSize="17sp"
-            android:id="@+id/last100TextView"/>
+            android:id="@+id/last100TextView"
+            android:background="#FAEBD7"/>
         <TextView
             android:text="Average"
             android:textSize="17sp"
-            android:id="@+id/avgTextView"/>
+            android:id="@+id/avgTextView"
+            android:background="#FAEBD7"/>
         <TextView
             android:textSize="17sp"
-            android:id="@+id/avgAll"/>
+            android:id="@+id/avgAll"
+            android:background="#FAEBD7"/>
         <TextView
             android:textSize="17sp"
-            android:id="@+id/avg10"/>
+            android:id="@+id/avg10"
+            android:background="#FAEBD7"/>
         <TextView
             android:textSize="17sp"
-            android:id="@+id/avg100"/>
+            android:id="@+id/avg100"
+            android:background="#FAEBD7"/>
         <TextView
             android:text="Maximum"
             android:textSize="17sp"
-            android:id="@+id/maxTextView" />
+            android:id="@+id/maxTextView"
+            android:background="#FAEBD7" />
         <TextView
             android:textSize="17sp"
-            android:id="@+id/maxAll"/>
+            android:id="@+id/maxAll"
+            android:background="#FAEBD7"/>
         <TextView
             android:textSize="17sp"
-            android:id="@+id/max10"/>
+            android:id="@+id/max10"
+            android:background="#FAEBD7"/>
         <TextView
             android:textSize="17sp"
-            android:id="@+id/max100"/>
+            android:id="@+id/max100"
+            android:background="#FAEBD7"/>
         <TextView
             android:text="Minimum"
             android:textSize="17sp"
-            android:id="@+id/minTextView"/>
+            android:id="@+id/minTextView"
+            android:background="#FAEBD7"/>
         <TextView
             android:textSize="17sp"
-            android:id="@+id/minAll"/>
+            android:id="@+id/minAll"
+            android:background="#FAEBD7"/>
         <TextView
             android:textSize="17sp"
-            android:id="@+id/min10"/>
+            android:id="@+id/min10"
+            android:background="#FAEBD7"/>
         <TextView
             android:textSize="17sp"
-            android:id="@+id/min100"/>
+            android:id="@+id/min100"
+            android:background="#FAEBD7"/>
         <TextView
             android:text="Median"
             android:textSize="17sp"
-            android:id="@+id/medianTextView"/>
+            android:id="@+id/medianTextView"
+            android:background="#FAEBD7"/>
         <TextView
             android:textSize="17sp"
-            android:id="@+id/medianAll"/>
+            android:id="@+id/medianAll"
+            android:background="#FAEBD7"/>
         <TextView
             android:textSize="17sp"
-            android:id="@+id/median10"/>
+            android:id="@+id/median10"
+            android:background="#FAEBD7"/>
         <TextView
             android:textSize="17sp"
-            android:id="@+id/median100"/>
+            android:id="@+id/median100"
+            android:background="#FAEBD7"/>
     </GridLayout>
 
     <TextView
@@ -104,14 +126,16 @@
         android:text="Multiplayer Results"
         android:id="@+id/multiplayerResultsTextView"
         android:layout_centerVertical="true"
-        android:layout_alignParentStart="true" />
+        android:layout_centerHorizontal="true" />
 
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:rowCount="5"
         android:columnCount="4"
-        android:id="@+id/gridView"
+        android:layout_margin="2dp"
+        android:background="#000000"
+        android:id="@+id/gridViewMultiplayer"
         android:orientation="horizontal"
         android:rowOrderPreserved="false"
         android:columnOrderPreserved="false"
@@ -124,71 +148,91 @@
         <TextView
             android:text=""
             android:textSize="17sp"
-            android:id="@+id/blank2"/>
+            android:id="@+id/blank2"
+            android:background="#FAEBD7"/>
         <TextView
             android:text="2 Player"
             android:textSize="17sp"
-            android:id="@+id/twoPlayerTextView"/>
+            android:id="@+id/twoPlayerTextView"
+            android:background="#FAEBD7"/>
         <TextView
             android:text="3 Player"
             android:textSize="17sp"
-            android:id="@+id/threePlayerTextView"/>
+            android:id="@+id/threePlayerTextView"
+            android:background="#FAEBD7"/>
         <TextView
             android:text="4 Player"
             android:textSize="17sp"
-            android:id="@+id/fourPlayerTextView"/>
+            android:id="@+id/fourPlayerTextView"
+            android:background="#FAEBD7"/>
         <TextView
             android:text="Player 1 Wins:"
             android:textSize="17sp"
-            android:id="@+id/p1WinsText"/>
+            android:id="@+id/p1WinsText"
+            android:background="#FAEBD7"/>
         <TextView
             android:textSize="17sp"
-            android:id="@+id/p1m2TextView"/>
+            android:id="@+id/p1m2TextView"
+            android:background="#FAEBD7"/>
         <TextView
             android:textSize="17sp"
-            android:id="@+id/p1m3TextView"/>
+            android:id="@+id/p1m3TextView"
+            android:background="#FAEBD7"/>
         <TextView
             android:textSize="17sp"
-            android:id="@+id/p1m4TextView"/>
+            android:id="@+id/p1m4TextView"
+            android:background="#FAEBD7"/>
         <TextView
             android:text="Player 2 wins:"
             android:textSize="17sp"
-            android:id="@+id/p2WinsText" />
+            android:id="@+id/p2WinsText"
+            android:background="#FAEBD7"/>
         <TextView
             android:textSize="17sp"
-            android:id="@+id/p2m2TextView"/>
+            android:id="@+id/p2m2TextView"
+            android:background="#FAEBD7"/>
         <TextView
             android:textSize="17sp"
-            android:id="@+id/p2m3TextView"/>
+            android:id="@+id/p2m3TextView"
+            android:background="#FAEBD7"/>
         <TextView
             android:textSize="17sp"
-            android:id="@+id/p2m4TextView"/>
+            android:id="@+id/p2m4TextView"
+            android:background="#FAEBD7"/>
         <TextView
             android:text="Player 3 wins:"
             android:textSize="17sp"
-            android:id="@+id/p3WinsText"/>
+            android:id="@+id/p3WinsText"
+            android:background="#FAEBD7"/>
         <TextView
             android:textSize="17sp"
-            android:id="@+id/blank3"/>
+            android:id="@+id/blank3"
+            android:background="#FAEBD7"/>
         <TextView
             android:textSize="17sp"
-            android:id="@+id/p3m3TextView"/>
+            android:id="@+id/p3m3TextView"
+            android:background="#FAEBD7"/>
         <TextView
             android:textSize="17sp"
-            android:id="@+id/p3m4TextView"/>
+            android:id="@+id/p3m4TextView"
+            android:background="#FAEBD7"/>
         <TextView
             android:text="Player 4 wins:"
             android:textSize="17sp"
-            android:id="@+id/p4WinsText"/>
+            android:id="@+id/p4WinsText"
+            android:background="#FAEBD7"/>
         <TextView
             android:textSize="17sp"
-            android:id="@+id/blank41"/>
+            android:id="@+id/blank41"
+            android:background="#FAEBD7"/>
         <TextView
             android:textSize="17sp"
-            android:id="@+id/blank42"/>
+            android:id="@+id/blank42"
+            android:background="#FAEBD7"/>
         <TextView
         android:textSize="17sp"
-        android:id="@+id/p4m4TextView"/>
+        android:id="@+id/p4m4TextView"
+            android:background="#FAEBD7"/>
     </GridLayout>
 
     <Button
@@ -196,10 +240,9 @@
         android:layout_height="wrap_content"
         android:text="Clear"
         android:id="@+id/clearResults"
-        android:layout_alignParentBottom="true"
-        android:layout_alignEnd="@+id/reactionTextView"
-        android:layout_marginBottom="37dp"
-        android:onClick="clearResults"/>
+        android:onClick="clearResults"
+        android:layout_below="@+id/gridViewMultiplayer"
+        android:layout_toStartOf="@+id/reactionTextView" />
 
     <Button
         android:layout_width="wrap_content"
