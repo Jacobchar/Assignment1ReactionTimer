@@ -138,8 +138,8 @@ public class Statistics extends AppCompatActivity {
 
     private void emailResults(){
         //From:http://www.tutorialspoint.com/android/android_sending_email.htm
-        Intent intent = new Intent(Intent.ACTION_SENDTO);
-        //intent.setData(Uri.parse("mailto:"));
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setData(Uri.parse("mailto:"));
         intent.putExtra(Intent.EXTRA_SUBJECT, "charlebo-reflex stats");
         intent.putExtra(Intent.EXTRA_TEXT, emailString());
         try {
