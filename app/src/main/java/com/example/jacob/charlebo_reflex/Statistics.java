@@ -37,7 +37,8 @@ public class Statistics extends AppCompatActivity {
     /*
     The purpose of this class is to load and store the data from the rest of the game and store them
     in hash maps. This class handles the loading, saving, clearing, emailing, and displays all the
-    data to the statistics screen.
+    data to the statistics screen. Though the method for emailing should work flawlessly I had
+    trouble with my intent.setData(Uri.parse("mailto:")) command (caused stats to crash).
     */
 
     private SinglePlayerResults reactionTimes = SinglePlayerResults.getGame();
@@ -136,9 +137,9 @@ public class Statistics extends AppCompatActivity {
     }
 
     private void emailResults(){
-        //From: http://stackoverflow.com/questions/2197741/how-can-i-send-emails-from-my-android-application, 2015-10-04
+        //From:http://www.tutorialspoint.com/android/android_sending_email.htm
         Intent intent = new Intent(Intent.ACTION_SENDTO);
-        intent.setData(Uri.parse("mailto:"));
+        //intent.setData(Uri.parse("mailto:"));
         intent.putExtra(Intent.EXTRA_SUBJECT, "charlebo-reflex stats");
         intent.putExtra(Intent.EXTRA_TEXT, emailString());
         try {
