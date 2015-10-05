@@ -10,7 +10,7 @@ http://developer.android.com/intl/ja/reference/java/lang/System.html#currentTime
 Assignment discussed with the following:
 Mason Strong, Dominic Trottier, Victoria Hessdorfer, David Ross, and the lab Ta's
 
-This assignment has been discussed and deliberated on by the following:
-Victoria Hessdorfer, David Ross, Mason Strong, Ben Schreiber, Dominic Trottier and the lab Ta's
+Emailing saved in the nick of time thanks to:
+http://www.tutorialspoint.com/android/android_sending_email.htm
 
 Video demo can be found at: https://www.youtube.com/watch?v=kzvnOGLSSFA
