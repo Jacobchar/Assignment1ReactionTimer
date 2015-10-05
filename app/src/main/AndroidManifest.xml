@@ -40,6 +40,10 @@
             android:name="com.example.jacob.charlebo_reflex.FourPlayer"
             android:label="Four Player">
         </activity>
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
 
     </application>
 

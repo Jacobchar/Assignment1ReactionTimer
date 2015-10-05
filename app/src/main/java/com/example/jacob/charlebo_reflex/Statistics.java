@@ -140,10 +140,12 @@ public class Statistics extends AppCompatActivity {
         //From:http://www.tutorialspoint.com/android/android_sending_email.htm
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setData(Uri.parse("mailto:"));
+        intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_SUBJECT, "charlebo-reflex stats");
         intent.putExtra(Intent.EXTRA_TEXT, emailString());
         try {
             startActivity(Intent.createChooser(intent, "Send mail with:"));
+            finish();
         } catch (android.content.ActivityNotFoundException e) {
             Toast.makeText(Statistics.this, "There are no email clients installed", Toast.LENGTH_SHORT).show();
         }
