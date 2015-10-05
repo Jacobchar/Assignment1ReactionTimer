@@ -17,23 +17,76 @@
  */
 package com.example.jacob.assignment1reactiontimer;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import java.util.HashMap;
 
 /**
  * Created by Jacob on 2015-10-01.
  */
 public class Statistics extends AppCompatActivity {
 
+    private SinglePlayerResults reactionTimes = SinglePlayerResults.getGame();
+    private MultiplayerResults multiplayerResults = MultiplayerResults.getGame();
+
+    //Load files
+    private void loadResults() {
+        reactionTimes.loadSinglePlayerResults(this.getBaseContext());
+        multiplayerResults.loadMultiplayerResults(this.getBaseContext());
+
+        HashMap<String, Long> singlePlayerStats = reactionTimes.reactionCalculations();
+        HashMap<String, Integer> multiplayerStats = multiplayerResults.multiplayerStats();
+
+        displaySinglePlayerStats(singlePlayerStats);
+        displayMultiplayerStats(multiplayerStats);
+
+    }
+
+    private void displaySinglePlayerStats(HashMap<String, Long> stats) {
+
+    }
+
+    private void displayMultiplayerStats(HashMap<String, Integer> stats){
+
+    }
+
+    //Clear Files
+    private void clearResults(){
+        this.reactionTimes.clearSinglePlayerResults();
+        this.multiplayerResults.clearMultiplayerResults();
+        loadResults();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.statistics);
+
+        loadResults();
+
+        Button clear = (Button) findViewById(R.id.clearResults);
+        clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clearResults();
+            }
+        });
+
+        Button email = (Button) findViewById(R.id.emailButton);
+        email.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                emailResults();
+            }
+        });
+    }
+
+    public void emailResults() {
+        //How to email
     }
 
     @Override
@@ -57,22 +110,4 @@ public class Statistics extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
-    public void statSelection(View view){
-
-        Button button = (Button) view;
-        Intent intent;
-
-        switch(button.getId()) {
-            case R.id.singlePlayerStatsbutton:
-                intent = new Intent(this, SinglePlayerStats.class);
-                startActivity(intent);
-                break;
-            case R.id.multiplayerStatsButton:
-                intent = new Intent(this, MultiplayerStats.class);
-                startActivity(intent);
-                break;
-        }
-    }
-
 }

@@ -45,7 +45,7 @@ public class MultiplayerResults {
     private HashMap<Integer, ArrayList<Integer>> multiplayerResults = new HashMap<>();
     private static MultiplayerResults thisGame = new MultiplayerResults();
 
-    public void saveResults(Context context){
+    public void saveMultiplayerResults(Context context){
         //The following code reflects what we did with the lonely twitter lab
         try{
             // http://stackoverflow.com/questions/3625837/android-what-is-wrong-with-openfileoutput, naikus, 2015-09-26
@@ -62,7 +62,7 @@ public class MultiplayerResults {
         }
     }
 
-    public void loadResults(Context context){
+    public void loadMultiplayerResults(Context context){
         //The following code reflects what we did with the lonely twitter lab
         try {
             FileInputStream fis = context.openFileInput(filename);
@@ -79,7 +79,7 @@ public class MultiplayerResults {
         }
     }
 
-    public void clearResults(){
+    public void clearMultiplayerResults(){
         this.multiplayerResults.clear();
     }
 
@@ -95,7 +95,7 @@ public class MultiplayerResults {
             winner.add(player);
         }
         this.multiplayerResults.put(gameMode, winner);
-        saveResults(buttonContext);
+        saveMultiplayerResults(buttonContext);
     }
 
     public HashMap<String, Integer> multiplayerStats() {
@@ -149,7 +149,7 @@ public class MultiplayerResults {
             }
         }
 
-        //Place wins in hashmap
+        //Place wins in hash map
         HashMap<String, Integer> multiplayerStats = new HashMap<>();
 
         multiplayerStats.put("p1m2", p1m2WinCount);

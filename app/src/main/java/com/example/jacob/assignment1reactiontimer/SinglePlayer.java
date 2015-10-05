@@ -42,7 +42,7 @@ public class SinglePlayer extends AppCompatActivity {
     private int GREEN = 0xff00ff00;
     private int BLACK = 0xff000000;
     private long reactionTime;
-    private ArrayList<Long> reactionTimes = new ArrayList<>();
+    private SinglePlayerResults reactionTimes = SinglePlayerResults.getGame();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -135,12 +135,13 @@ public class SinglePlayer extends AppCompatActivity {
             message = "You jumped the gun!";
         } else {
             message = "Your reaction time was: " + reactionTime + "ms";
+            this.reactionTimes.addReactionTime(reactionTime, this.getBaseContext());
         }
 
         final AlertDialog result = new AlertDialog.Builder(this).create();
         result.setMessage(message);
         result.show();
-        reactionTimes.add(reactionTime);
+        reactionTimes.addReactionTime(reactionTime, this.getBaseContext());
 
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
@@ -151,8 +152,4 @@ public class SinglePlayer extends AppCompatActivity {
             }
         }, 2000);
     }
-    public ArrayList<Long> getReactionTimes() {
-        return reactionTimes;
-    }
-
 }

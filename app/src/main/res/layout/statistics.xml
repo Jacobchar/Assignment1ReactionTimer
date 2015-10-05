@@ -7,30 +7,197 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Statistics"
-        android:id="@+id/statisticsTtextView"
+        android:text="Reaction Times"
+        android:id="@+id/reactionTextView"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp" />
+        android:layout_alignParentStart="true" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:rowCount="5"
+        android:columnCount="4"
+        android:id="@+id/gridView"
+        android:orientation="horizontal"
+        android:rowOrderPreserved="false"
+        android:columnOrderPreserved="false"
+        android:useDefaultMargins="true"
+        android:touchscreenBlocksFocus="false"
+        android:nestedScrollingEnabled="false"
+        android:longClickable="false"
+        android:layout_below="@+id/reactionTextView"
+        android:layout_alignParentStart="true">
+        <TextView
+            android:text=""
+            android:textSize="17sp"
+            android:id="@+id/blank"/>
+        <TextView
+            android:text="All Results"
+            android:textSize="17sp"
+            android:id="@+id/allResultsTextView"/>
+        <TextView
+            android:text="Last 10"
+            android:textSize="17sp"
+            android:id="@+id/last10Textview"/>
+        <TextView
+            android:text="Last 100"
+            android:textSize="17sp"
+            android:id="@+id/last100TextView"/>
+        <TextView
+            android:text="Average"
+            android:textSize="17sp"
+            android:id="@+id/avgTextView"/>
+        <TextView
+            android:textSize="17sp"
+            android:id="@+id/avgAll"/>
+        <TextView
+            android:textSize="17sp"
+            android:id="@+id/avg10"/>
+        <TextView
+            android:textSize="17sp"
+            android:id="@+id/avg100"/>
+        <TextView
+            android:text="Maximum"
+            android:textSize="17sp"
+            android:id="@+id/maxTextView" />
+        <TextView
+            android:textSize="17sp"
+            android:id="@+id/maxAll"/>
+        <TextView
+            android:textSize="17sp"
+            android:id="@+id/max10"/>
+        <TextView
+            android:textSize="17sp"
+            android:id="@+id/max100"/>
+        <TextView
+            android:text="Minimum"
+            android:textSize="17sp"
+            android:id="@+id/minTextView"/>
+        <TextView
+            android:textSize="17sp"
+            android:id="@+id/minAll"/>
+        <TextView
+            android:textSize="17sp"
+            android:id="@+id/min10"/>
+        <TextView
+            android:textSize="17sp"
+            android:id="@+id/min100"/>
+        <TextView
+            android:text="Median"
+            android:textSize="17sp"
+            android:id="@+id/medianTextView"/>
+        <TextView
+            android:textSize="17sp"
+            android:id="@+id/medianAll"/>
+        <TextView
+            android:textSize="17sp"
+            android:id="@+id/median10"/>
+        <TextView
+            android:textSize="17sp"
+            android:id="@+id/median100"/>
+    </GridLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Multiplayer Results"
+        android:id="@+id/multiplayerResultsTextView"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:rowCount="5"
+        android:columnCount="4"
+        android:id="@+id/gridView"
+        android:orientation="horizontal"
+        android:rowOrderPreserved="false"
+        android:columnOrderPreserved="false"
+        android:useDefaultMargins="true"
+        android:touchscreenBlocksFocus="false"
+        android:nestedScrollingEnabled="false"
+        android:longClickable="false"
+        android:layout_below="@+id/multiplayerResultsTextView"
+        android:layout_alignParentStart="true">
+        <TextView
+            android:text=""
+            android:textSize="17sp"
+            android:id="@+id/blank2"/>
+        <TextView
+            android:text="2 Player"
+            android:textSize="17sp"
+            android:id="@+id/twoPlayerTextView"/>
+        <TextView
+            android:text="3 Player"
+            android:textSize="17sp"
+            android:id="@+id/threePlayerTextView"/>
+        <TextView
+            android:text="4 Player"
+            android:textSize="17sp"
+            android:id="@+id/fourPlayerTextView"/>
+        <TextView
+            android:text="Player 1 Wins"
+            android:textSize="17sp"
+            android:id="@+id/p1WinsText"/>
+        <TextView
+            android:textSize="17sp"
+            android:id="@+id/p1m2TextView"/>
+        <TextView
+            android:textSize="17sp"
+            android:id="@+id/p1m3TextView"/>
+        <TextView
+            android:textSize="17sp"
+            android:id="@+id/p1m4TextView"/>
+        <TextView
+            android:text="Player 2 wins"
+            android:textSize="17sp"
+            android:id="@+id/p2WinsText" />
+        <TextView
+            android:textSize="17sp"
+            android:id="@+id/p2m2TextView"/>
+        <TextView
+            android:textSize="17sp"
+            android:id="@+id/p2m3TextView"/>
+        <TextView
+            android:textSize="17sp"
+            android:id="@+id/p2m4TextView"/>
+        <TextView
+            android:text="Player 3 wins"
+            android:textSize="17sp"
+            android:id="@+id/p3WinsText"/>
+        <TextView
+            android:textSize="17sp"
+            android:id="@+id/p3m3TextView"/>
+        <TextView
+            android:textSize="17sp"
+            android:id="@+id/p3m4TextView"/>
+        <TextView
+            android:textSize="17sp"
+            android:id="@+id/p4m4TextView"/>
+        <TextView
+        android:text="Player 4 wins"
+        android:textSize="17sp"
+        android:id="@+id/p4WinsText"/>
+    </GridLayout>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Single Player"
-        android:id="@+id/singlePlayerStatsbutton"
-        android:layout_marginTop="106dp"
-        android:layout_below="@+id/statisticsTtextView"
-        android:layout_centerHorizontal="true"
-        android:onClick="statSelection" />
+        android:text="Clear"
+        android:id="@+id/clearResults"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/reactionTextView"
+        android:layout_marginBottom="37dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Multiplayer"
-        android:id="@+id/multiplayerStatsButton"
-        android:layout_below="@+id/singlePlayerStatsbutton"
-        android:layout_alignStart="@+id/singlePlayerStatsbutton"
-        android:layout_marginTop="130dp"
-        android:layout_alignEnd="@+id/singlePlayerStatsbutton"
-        android:onClick="statSelection"/>
+        android:text="Email Results"
+        android:id="@+id/emailButton"
+        android:layout_alignBottom="@+id/clearResults"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="37dp" />
+
 </RelativeLayout>
