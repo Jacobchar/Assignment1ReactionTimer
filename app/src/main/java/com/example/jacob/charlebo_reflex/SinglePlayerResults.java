@@ -32,6 +32,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
 /**
@@ -39,7 +40,7 @@ import java.util.HashMap;
  */
 public class SinglePlayerResults {
 
-    private String filename = "singlePlayerResults";
+    private String singlePlayerFile = "singlePlayerResults";
     private ArrayList<Long> singlePlayerResults = new ArrayList<>();
     private static SinglePlayerResults thisGame = new SinglePlayerResults();
 
@@ -47,7 +48,7 @@ public class SinglePlayerResults {
         //The following code reflects what we did with the lonely twitter lab
         try{
             // http://stackoverflow.com/questions/3625837/android-what-is-wrong-with-openfileoutput, naikus, 2015-09-26
-            FileOutputStream fos = context.openFileOutput(filename, Context.MODE_PRIVATE);
+            FileOutputStream fos = context.openFileOutput(singlePlayerFile, Context.MODE_PRIVATE);
             BufferedWriter output = new BufferedWriter(new OutputStreamWriter(fos));
             Gson gson = new Gson();
             gson.toJson(this.singlePlayerResults, output);
@@ -63,7 +64,7 @@ public class SinglePlayerResults {
     public void loadSinglePlayerResults(Context context){
         //The following code reflects what we did with the lonely twitter lab
         try {
-            FileInputStream fis = context.openFileInput(filename);
+            FileInputStream fis = context.openFileInput(singlePlayerFile);
             BufferedReader in = new BufferedReader(new InputStreamReader(fis));
             Gson gson = new Gson();
             // https://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/Gson.html, 2015-09-23
@@ -77,8 +78,9 @@ public class SinglePlayerResults {
         }
     }
 
-    public void clearSinglePlayerResults(){
+    public void clearSinglePlayerResults(Context context){
         this.singlePlayerResults.clear();
+        saveSinglePlayerResults(context);
     }
 
     public static SinglePlayerResults getGame() {
@@ -90,13 +92,87 @@ public class SinglePlayerResults {
         saveSinglePlayerResults(context);
     }
 
-    //Function for calculating reaction time average, median, etc, etc.
-    public HashMap<String, Long> reactionCalculations() {
-
-        HashMap<String, Long> reactionCalculations = new HashMap<>();
-
-
-        return reactionCalculations;
+    //Functions for calculating reaction time average, median, etc, etc.
+    public Long average(int numReactionTimes){
+        int size = singlePlayerResults.size();
+        if(numReactionTimes > size){
+            numReactionTimes = size;
+        }
+        ArrayList<Long> subList = new ArrayList<>(singlePlayerResults.subList(size-numReactionTimes, size));
+        int sum =0;
+        for(Long i: subList){
+            sum += i;
+        }
+        int i = sum/numReactionTimes;
+        Long l = (long) i;
+        return l;
     }
 
+    public Long max(int numReactionTimes){
+        int size = singlePlayerResults.size();
+        if(numReactionTimes > size){
+            numReactionTimes = size;
+        }
+        ArrayList<Long> subList = new ArrayList<>(singlePlayerResults.subList(size-numReactionTimes, size));
+        return Collections.min(subList);
+    }
+    public Long min(int numReactionTimes){
+        int size = singlePlayerResults.size();
+        if(numReactionTimes > size){
+            numReactionTimes = size;
+        }
+        ArrayList<Long> subList = new ArrayList<>(singlePlayerResults.subList(size-numReactionTimes, size));
+        return Collections.min(subList);
+    }
+    public Long median(int numReactionTimes){
+        int size = singlePlayerResults.size();
+        if(numReactionTimes > size){
+            numReactionTimes = size;
+        }
+        ArrayList<Long> subList = new ArrayList<>(singlePlayerResults.subList(size-numReactionTimes, size));
+        Collections.sort(subList);
+
+        if(subList.size() % 2 == 1){
+            return subList.get((subList.size() - 1) / 2 + 1);
+        } else {
+            Long upper = subList.get(subList.size() / 2);
+            Long lower = subList.get(subList.size() / 2 - 1);
+            return (upper + lower) / 2;
+        }
+    }
+
+    //Put all the data into our hash map for stats screen
+    public HashMap<String, Long> reactionCalculations() {
+
+        HashMap<String, Long> singlePlayerStats = new HashMap<>();
+
+        if(singlePlayerResults.isEmpty()){
+            singlePlayerStats.put("avgAll", Long.valueOf(0));
+            singlePlayerStats.put("maxAll", Long.valueOf(0));
+            singlePlayerStats.put("minAll", Long.valueOf(0));
+            singlePlayerStats.put("medianAll", Long.valueOf(0));
+            singlePlayerStats.put("avg10", Long.valueOf(0));
+            singlePlayerStats.put("max10",Long.valueOf(0));
+            singlePlayerStats.put("min10", Long.valueOf(0));
+            singlePlayerStats.put("median10", Long.valueOf(0));
+            singlePlayerStats.put("avg100", Long.valueOf(0));
+            singlePlayerStats.put("max100", Long.valueOf(0));
+            singlePlayerStats.put("min100", Long.valueOf(0));
+            singlePlayerStats.put("median100", Long.valueOf(0));
+        } else {
+            singlePlayerStats.put("avgAll", average(singlePlayerResults.size()));
+            singlePlayerStats.put("maxAll", max(singlePlayerResults.size()));
+            singlePlayerStats.put("minAll", min(singlePlayerResults.size()));
+            singlePlayerStats.put("medianAll", median(singlePlayerResults.size()));
+            singlePlayerStats.put("avg10", average(10));
+            singlePlayerStats.put("max10", max(10));
+            singlePlayerStats.put("min10", min(10));
+            singlePlayerStats.put("median10", median(10));
+            singlePlayerStats.put("avg100", average(100));
+            singlePlayerStats.put("max100", max(100));
+            singlePlayerStats.put("min100", min(100));
+            singlePlayerStats.put("median100", median(100));
+        }
+        return singlePlayerStats;
+    }
 }

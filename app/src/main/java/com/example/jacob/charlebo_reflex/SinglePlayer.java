@@ -140,7 +140,6 @@ public class SinglePlayer extends AppCompatActivity {
         final AlertDialog result = new AlertDialog.Builder(this).create();
         result.setMessage(message);
         result.show();
-        reactionTimes.addReactionTime(reactionTime, this.getBaseContext());
 
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {

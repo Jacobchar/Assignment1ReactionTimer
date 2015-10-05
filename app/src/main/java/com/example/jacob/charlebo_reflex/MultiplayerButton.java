@@ -28,11 +28,11 @@ import android.widget.Button;
  */
 public class MultiplayerButton {
 
+    //Handy variables we need to properly store data
     private Button button;
     private Integer player, gameMode;
     private Context buttonContext;
     private MultiplayerResults gameWinner = MultiplayerResults.getGame();
-
 
     public MultiplayerButton(Button button, final Integer player, final Integer gameMode, final Context buttonContext){
 
@@ -40,12 +40,12 @@ public class MultiplayerButton {
         this.gameMode = gameMode;
         this.buttonContext = buttonContext;
         this.button = button;
-
         this.button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                declareWinner();
                 gameWinner.addWinner(gameMode, player, buttonContext);
+                declareWinner();
+
             }
         });
     }

@@ -41,7 +41,7 @@ import java.util.HashMap;
 // This class will handle the Hashmap I used to store and save the data from the single and multiplayer modes (shout out to the labs for the help with saving and loading with gson)
 public class MultiplayerResults {
 
-    private String filename = "multiplayerResults";
+    private String multiplayerFile = "multiplayerResults";
     private HashMap<Integer, ArrayList<Integer>> multiplayerResults = new HashMap<>();
     private static MultiplayerResults thisGame = new MultiplayerResults();
 
@@ -49,7 +49,7 @@ public class MultiplayerResults {
         //The following code reflects what we did with the lonely twitter lab
         try{
             // http://stackoverflow.com/questions/3625837/android-what-is-wrong-with-openfileoutput, naikus, 2015-09-26
-            FileOutputStream fos = context.openFileOutput(filename, Context.MODE_PRIVATE);
+            FileOutputStream fos = context.openFileOutput(multiplayerFile, Context.MODE_PRIVATE);
             BufferedWriter output = new BufferedWriter(new OutputStreamWriter(fos));
             Gson gson = new Gson();
             gson.toJson(this.multiplayerResults, output);
@@ -65,7 +65,7 @@ public class MultiplayerResults {
     public void loadMultiplayerResults(Context context){
         //The following code reflects what we did with the lonely twitter lab
         try {
-            FileInputStream fis = context.openFileInput(filename);
+            FileInputStream fis = context.openFileInput(multiplayerFile);
             BufferedReader in = new BufferedReader(new InputStreamReader(fis));
             Gson gson = new Gson();
             // https://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/Gson.html, 2015-09-23
@@ -79,8 +79,9 @@ public class MultiplayerResults {
         }
     }
 
-    public void clearMultiplayerResults(){
+    public void clearMultiplayerResults(Context context){
         this.multiplayerResults.clear();
+        saveMultiplayerResults(context);
     }
 
     public static MultiplayerResults getGame() {

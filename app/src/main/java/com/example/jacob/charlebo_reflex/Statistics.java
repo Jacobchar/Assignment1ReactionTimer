@@ -49,7 +49,30 @@ public class Statistics extends AppCompatActivity {
     }
 
     private void displaySinglePlayerStats(HashMap<String, Long> stats) {
-
+        TextView statText = (TextView) findViewById(R.id.avgAll);
+        statText.setText(stats.get("avgAll").toString());
+        statText = (TextView) findViewById(R.id.maxAll);
+        statText.setText(stats.get("maxAll").toString());
+        statText = (TextView) findViewById(R.id.minAll);
+        statText.setText(stats.get("minAll").toString());
+        statText = (TextView) findViewById(R.id.medianAll);
+        statText.setText(stats.get("medianAll").toString());
+        statText = (TextView) findViewById(R.id.avg10);
+        statText.setText(stats.get("avg10").toString());
+        statText = (TextView) findViewById(R.id.max10);
+        statText.setText(stats.get("max10").toString());
+        statText = (TextView) findViewById(R.id.min10);
+        statText.setText(stats.get("min10").toString());
+        statText = (TextView) findViewById(R.id.median10);
+        statText.setText(stats.get("median10").toString());
+        statText = (TextView) findViewById(R.id.avg100);
+        statText.setText(stats.get("avg100").toString());
+        statText = (TextView) findViewById(R.id.max100);
+        statText.setText(stats.get("max100").toString());
+        statText = (TextView) findViewById(R.id.min100);
+        statText.setText(stats.get("min100").toString());
+        statText = (TextView) findViewById(R.id.median100);
+        statText.setText(stats.get("median100").toString());
     }
 
     private void displayMultiplayerStats(HashMap<String, Integer> stats){
@@ -75,8 +98,8 @@ public class Statistics extends AppCompatActivity {
 
     //Clear Files
     private void clearResults(){
-        this.reactionTimes.clearSinglePlayerResults();
-        this.multiplayerResults.clearMultiplayerResults();
+        this.reactionTimes.clearSinglePlayerResults(this.getBaseContext());
+        this.multiplayerResults.clearMultiplayerResults(this.getBaseContext());
         loadResults();
     }
 
