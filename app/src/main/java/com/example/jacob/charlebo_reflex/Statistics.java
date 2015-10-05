@@ -36,7 +36,7 @@ public class Statistics extends AppCompatActivity {
     /*
     The purpose of this class is to load and store the data from the rest of the game and store them
     in hash maps. This class handles the loading, saving, clearing, emailing, and displays all the
-    data to the statistics screen. 
+    data to the statistics screen.
     */
 
     private SinglePlayerResults reactionTimes = SinglePlayerResults.getGame();
@@ -164,7 +164,6 @@ public class Statistics extends AppCompatActivity {
         //From: http://stackoverflow.com/questions/2197741/how-can-i-send-emails-from-my-android-application, 2015-10-04
         Intent intent = new Intent(Intent.ACTION_SENDTO);
         intent.setData(Uri.parse("mailto:"));
-        intent.putExtra(Intent.EXTRA_EMAIL, "");
         intent.putExtra(Intent.EXTRA_SUBJECT, "charlebo-reflex stats");
         intent.putExtra(Intent.EXTRA_TEXT, email);
         if (intent.resolveActivity(getPackageManager()) != null) {

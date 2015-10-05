@@ -42,10 +42,7 @@ public class SinglePlayer extends AppCompatActivity {
     */
 
     protected long startTime;
-    private int GREY = 0xff444444;
     private int GREEN = 0xff00ff00;
-    private int BLACK = 0xff000000;
-    private long reactionTime;
     private SinglePlayerResults reactionTimes = SinglePlayerResults.getGame();
 
     @Override
@@ -100,6 +97,9 @@ public class SinglePlayer extends AppCompatActivity {
         int max = 2000;
         int min = 10;
 
+        int BLACK = 0xff000000;
+        int GREY = 0xff444444;
+
         Random i = new Random();
         int delay = i.nextInt(max-min) + min;
 
@@ -132,7 +132,7 @@ public class SinglePlayer extends AppCompatActivity {
 
     protected void resultDialog(long endTime){
 
-        reactionTime = (endTime - startTime);
+        long reactionTime = (endTime - startTime);
 
         String message;
         if(endTime == -1){
