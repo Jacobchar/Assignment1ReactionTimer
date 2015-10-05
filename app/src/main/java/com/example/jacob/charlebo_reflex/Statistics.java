@@ -138,6 +138,7 @@ public class Statistics extends AppCompatActivity {
     private void emailResults(){
         //From: http://stackoverflow.com/questions/2197741/how-can-i-send-emails-from-my-android-application, 2015-10-04
         Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:"));
         intent.putExtra(Intent.EXTRA_SUBJECT, "charlebo-reflex stats");
         intent.putExtra(Intent.EXTRA_TEXT, emailString());
         try {
