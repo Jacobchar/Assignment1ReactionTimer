@@ -26,6 +26,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.HashMap;
 
@@ -134,7 +135,19 @@ public class Statistics extends AppCompatActivity {
         });
     }
 
-    public void emailResults() {
+    private void emailResults(){
+        //From: http://stackoverflow.com/questions/2197741/how-can-i-send-emails-from-my-android-application, 2015-10-04
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.putExtra(Intent.EXTRA_SUBJECT, "charlebo-reflex stats");
+        intent.putExtra(Intent.EXTRA_TEXT, emailString());
+        try {
+            startActivity(Intent.createChooser(intent, "Send mail with:"));
+        } catch (android.content.ActivityNotFoundException e) {
+            Toast.makeText(Statistics.this, "There are no email clients installed", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private String emailString() {
         HashMap<String, Long> singlePlayerResults = this.reactionTimes.reactionCalculations();
         HashMap<String, Integer> multiplayerStats = this.multiplayerResults.multiplayerStats();
 
@@ -160,15 +173,7 @@ public class Statistics extends AppCompatActivity {
                 " Player 2 wins: " + multiplayerStats.get("p2m4").toString() + "\n" +
                 " Player 3 Wins:" + multiplayerStats.get("p3m4").toString() + "\n" +
                 " Player 4 wins:" + multiplayerStats.get("p4m4").toString() + "\n";
-
-        //From: http://stackoverflow.com/questions/2197741/how-can-i-send-emails-from-my-android-application, 2015-10-04
-        Intent intent = new Intent(Intent.ACTION_SENDTO);
-        intent.setData(Uri.parse("mailto:"));
-        intent.putExtra(Intent.EXTRA_SUBJECT, "charlebo-reflex stats");
-        intent.putExtra(Intent.EXTRA_TEXT, email);
-        if (intent.resolveActivity(getPackageManager()) != null) {
-            startActivity(intent);
-        }
+        return email;
     }
 
     @Override
