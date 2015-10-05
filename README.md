@@ -13,4 +13,4 @@ Mason Strong, Dominic Trottier, Victoria Hessdorfer, David Ross, and the lab Ta'
 Emailing saved in the nick of time thanks to:
 http://www.tutorialspoint.com/android/android_sending_email.htm
 
-Video demo can be found at: https://www.youtube.com/watch?v=kzvnOGLSSFA
+Video demo can be found at: https://www.youtube.com/watch?v=2hu7y_o_L7U
