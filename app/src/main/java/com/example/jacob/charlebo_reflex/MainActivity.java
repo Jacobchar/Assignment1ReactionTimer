@@ -15,25 +15,22 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.example.jacob.assignment1reactiontimer;
+
+package com.example.jacob.charlebo_reflex;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 
-/**
- * Created by Jacob on 2015-10-01.
- */
-public class Multiplayer extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.multiplayer);
+        setContentView(R.layout.activity_main);
     }
 
     @Override
@@ -58,24 +55,23 @@ public class Multiplayer extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void playerSelection(View view) {
-
-        Button button = (Button) view;
-        Intent intent;
-
-        switch(button.getId()) {
-            case R.id.twoPlayerButton:
-                intent = new Intent(this, TwoPlayer.class);
-                startActivity(intent);
-                break;
-            case R.id.threePlayerButton:
-                intent = new Intent(this, ThreePlayer.class);
-                startActivity(intent);
-                break;
-            case R.id.fourPlayerButton:
-                intent = new Intent(this, FourPlayer.class);
-                startActivity(intent);
-                break;
-        }
+    /*Single Player Button onClick*/
+    public void singlePlayer(View view) {
+        Intent intent = new Intent(this, SinglePlayer.class);
+        startActivity(intent);
     }
+
+    /*Multi-Player Button onClick*/
+    public void multiPlayer(View view) {
+        Intent intent = new Intent(this, Multiplayer.class);
+        startActivity(intent);
+    }
+
+    /*Statistics Button onClick*/
+    public void statistics(View view) {
+        Intent intent = new Intent(this, Statistics.class);
+        startActivity(intent);
+    }
+
+
 }

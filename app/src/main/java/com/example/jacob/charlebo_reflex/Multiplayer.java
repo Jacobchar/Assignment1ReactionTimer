@@ -15,28 +15,25 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.example.jacob.assignment1reactiontimer;
+package com.example.jacob.charlebo_reflex;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 
 /**
  * Created by Jacob on 2015-10-01.
  */
-public class ThreePlayer extends AppCompatActivity {
+public class Multiplayer extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.three_player);
-
-        //Create the multiplayer buttons
-        new MultiplayerButton((Button) findViewById(R.id.p1ModeThreeButton), 1, 3, ThreePlayer.this);
-        new MultiplayerButton((Button) findViewById(R.id.p2ModeThreeButton), 2, 3, ThreePlayer.this);
-        new MultiplayerButton((Button) findViewById(R.id.p3ModeThreeButton), 3, 3, ThreePlayer.this);
+        setContentView(R.layout.multiplayer);
     }
 
     @Override
@@ -59,5 +56,26 @@ public class ThreePlayer extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void playerSelection(View view) {
+
+        Button button = (Button) view;
+        Intent intent;
+
+        switch(button.getId()) {
+            case R.id.twoPlayerButton:
+                intent = new Intent(this, TwoPlayer.class);
+                startActivity(intent);
+                break;
+            case R.id.threePlayerButton:
+                intent = new Intent(this, ThreePlayer.class);
+                startActivity(intent);
+                break;
+            case R.id.fourPlayerButton:
+                intent = new Intent(this, FourPlayer.class);
+                startActivity(intent);
+                break;
+        }
     }
 }

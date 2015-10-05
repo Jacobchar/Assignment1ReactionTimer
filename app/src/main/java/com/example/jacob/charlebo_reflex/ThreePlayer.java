@@ -15,22 +15,28 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+package com.example.jacob.charlebo_reflex;
 
-package com.example.jacob.assignment1reactiontimer;
-
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
+import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+/**
+ * Created by Jacob on 2015-10-01.
+ */
+public class ThreePlayer extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.three_player);
+
+        //Create the multiplayer buttons
+        new MultiplayerButton((Button) findViewById(R.id.p1ModeThreeButton), 1, 3, ThreePlayer.this);
+        new MultiplayerButton((Button) findViewById(R.id.p2ModeThreeButton), 2, 3, ThreePlayer.this);
+        new MultiplayerButton((Button) findViewById(R.id.p3ModeThreeButton), 3, 3, ThreePlayer.this);
     }
 
     @Override
@@ -54,24 +60,4 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
-    /*Single Player Button onClick*/
-    public void singlePlayer(View view) {
-        Intent intent = new Intent(this, SinglePlayer.class);
-        startActivity(intent);
-    }
-
-    /*Multi-Player Button onClick*/
-    public void multiPlayer(View view) {
-        Intent intent = new Intent(this, Multiplayer.class);
-        startActivity(intent);
-    }
-
-    /*Statistics Button onClick*/
-    public void statistics(View view) {
-        Intent intent = new Intent(this, Statistics.class);
-        startActivity(intent);
-    }
-
-
 }

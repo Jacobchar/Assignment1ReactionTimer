@@ -1,4 +1,4 @@
-package com.example.jacob.assignment1reactiontimer;
+package com.example.jacob.charlebo_reflex;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

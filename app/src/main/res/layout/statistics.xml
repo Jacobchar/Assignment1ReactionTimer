@@ -138,7 +138,7 @@
             android:textSize="17sp"
             android:id="@+id/fourPlayerTextView"/>
         <TextView
-            android:text="Player 1 Wins"
+            android:text="Player 1 Wins:"
             android:textSize="17sp"
             android:id="@+id/p1WinsText"/>
         <TextView
@@ -151,7 +151,7 @@
             android:textSize="17sp"
             android:id="@+id/p1m4TextView"/>
         <TextView
-            android:text="Player 2 wins"
+            android:text="Player 2 wins:"
             android:textSize="17sp"
             android:id="@+id/p2WinsText" />
         <TextView
@@ -164,9 +164,12 @@
             android:textSize="17sp"
             android:id="@+id/p2m4TextView"/>
         <TextView
-            android:text="Player 3 wins"
+            android:text="Player 3 wins:"
             android:textSize="17sp"
             android:id="@+id/p3WinsText"/>
+        <TextView
+            android:textSize="17sp"
+            android:id="@+id/blank3"/>
         <TextView
             android:textSize="17sp"
             android:id="@+id/p3m3TextView"/>
@@ -174,12 +177,18 @@
             android:textSize="17sp"
             android:id="@+id/p3m4TextView"/>
         <TextView
+            android:text="Player 4 wins:"
             android:textSize="17sp"
-            android:id="@+id/p4m4TextView"/>
+            android:id="@+id/p4WinsText"/>
         <TextView
-        android:text="Player 4 wins"
+            android:textSize="17sp"
+            android:id="@+id/blank41"/>
+        <TextView
+            android:textSize="17sp"
+            android:id="@+id/blank42"/>
+        <TextView
         android:textSize="17sp"
-        android:id="@+id/p4WinsText"/>
+        android:id="@+id/p4m4TextView"/>
     </GridLayout>
 
     <Button
@@ -189,7 +198,8 @@
         android:id="@+id/clearResults"
         android:layout_alignParentBottom="true"
         android:layout_alignEnd="@+id/reactionTextView"
-        android:layout_marginBottom="37dp" />
+        android:layout_marginBottom="37dp"
+        android:onClick="clearResults"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -198,6 +208,7 @@
         android:id="@+id/emailButton"
         android:layout_alignBottom="@+id/clearResults"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="37dp" />
+        android:layout_marginEnd="37dp"
+        android:onClick="emailResults"/>
 
 </RelativeLayout>

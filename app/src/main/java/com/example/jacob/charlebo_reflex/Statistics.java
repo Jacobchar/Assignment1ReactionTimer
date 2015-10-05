@@ -15,7 +15,7 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.example.jacob.assignment1reactiontimer;
+package com.example.jacob.charlebo_reflex;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -23,6 +23,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+
 import java.util.HashMap;
 
 /**
@@ -51,7 +53,24 @@ public class Statistics extends AppCompatActivity {
     }
 
     private void displayMultiplayerStats(HashMap<String, Integer> stats){
-
+        TextView statText = (TextView) findViewById(R.id.p1m2TextView);
+        statText.setText(stats.get("p1m2").toString());
+        statText = (TextView) findViewById(R.id.p1m3TextView);
+        statText.setText(stats.get("p1m3").toString());
+        statText = (TextView) findViewById(R.id.p1m4TextView);
+        statText.setText(stats.get("p1m4").toString());
+        statText = (TextView) findViewById(R.id.p2m2TextView);
+        statText.setText(stats.get("p2m2").toString());
+        statText = (TextView) findViewById(R.id.p2m3TextView);
+        statText.setText(stats.get("p2m3").toString());
+        statText = (TextView) findViewById(R.id.p2m4TextView);
+        statText.setText(stats.get("p2m4").toString());
+        statText = (TextView) findViewById(R.id.p3m3TextView);
+        statText.setText(stats.get("p3m3").toString());
+        statText = (TextView) findViewById(R.id.p3m4TextView);
+        statText.setText(stats.get("p3m4").toString());
+        statText = (TextView) findViewById(R.id.p4m4TextView);
+        statText.setText(stats.get("p4m4").toString());
     }
 
     //Clear Files

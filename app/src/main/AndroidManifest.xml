@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.jacob.assignment1reactiontimer" >
+    package="com.example.jacob.charlebo_reflex" >
 
     <application
         android:allowBackup="true"
@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.jacob.charlebo_reflex.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,27 +17,27 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SinglePlayer"
+            android:name="com.example.jacob.charlebo_reflex.SinglePlayer"
             android:label="Single Player">
         </activity>
         <activity
-            android:name=".Multiplayer"
+            android:name="com.example.jacob.charlebo_reflex.Multiplayer"
             android:label="Multiplayer">
         </activity>
         <activity
-            android:name=".Statistics"
+            android:name="com.example.jacob.charlebo_reflex.Statistics"
             android:label="Statistics">
         </activity>
         <activity
-            android:name=".TwoPlayer"
+            android:name="com.example.jacob.charlebo_reflex.TwoPlayer"
             android:label="Two Player">
         </activity>
         <activity
-            android:name=".ThreePlayer"
+            android:name="com.example.jacob.charlebo_reflex.ThreePlayer"
             android:label="Three Player">
         </activity>
         <activity
-            android:name=".FourPlayer"
+            android:name="com.example.jacob.charlebo_reflex.FourPlayer"
             android:label="Four Player">
         </activity>
 
