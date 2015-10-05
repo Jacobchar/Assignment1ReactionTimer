@@ -26,6 +26,10 @@ import android.view.MenuItem;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
+    /*
+    Main activity that sets up the main menu of the app and allows the user to select the option
+    they would like to utilize
+    */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

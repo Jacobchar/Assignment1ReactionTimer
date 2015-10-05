@@ -27,6 +27,12 @@ import android.widget.Button;
  * Created by Jacob on 2015-10-01.
  */
 public class TwoPlayer extends AppCompatActivity {
+    /*
+    This is one of the 3 multiplayer modes offered to the user. Here we can easily see the simplicity
+    of having a multiplayer button class that uses the parameters it is given and sends them to
+    our multiplayer results class to be stored in our hash maps.
+    */
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -38,8 +38,16 @@ import java.util.HashMap;
  * Created by Jacob on 2015-10-02.
  */
 
-// This class will handle the Hashmap I used to store and save the data from the single and multiplayer modes (shout out to the labs for the help with saving and loading with gson)
 public class MultiplayerResults {
+    /*
+    This class handles the Hashmap used to store and save the data from the multiplayer modes
+    (shout out to the labs for the help with saving and loading with gson). It provides us with
+    many useful functions that we use when presenting the stats to the user.
+    I chose a Hashmap because it seemed to be the easiest way to store data with a corresponding
+    string that I could use to call it later. This allowed me to safely and easily store and retrieve
+    my multiplayer win counters for the varous modes
+    */
+
 
     private String multiplayerFile = "multiplayerResults";
     private HashMap<Integer, ArrayList<Integer>> multiplayerResults = new HashMap<>();
@@ -92,9 +100,9 @@ public class MultiplayerResults {
         ArrayList<Integer> winner = this.multiplayerResults.get(gameMode);
         if (winner == null){
             winner = new ArrayList<>();
-        } else {
             winner.add(player);
         }
+        winner.add(player);
         this.multiplayerResults.put(gameMode, winner);
         saveMultiplayerResults(buttonContext);
     }

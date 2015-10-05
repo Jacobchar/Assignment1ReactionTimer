@@ -17,6 +17,8 @@
  */
 package com.example.jacob.charlebo_reflex;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -31,6 +33,11 @@ import java.util.HashMap;
  * Created by Jacob on 2015-10-01.
  */
 public class Statistics extends AppCompatActivity {
+    /*
+    The purpose of this class is to load and store the data from the rest of the game and store them
+    in hash maps. This class handles the loading, saving, clearing, emailing, and displays all the
+    data to the statistics screen. 
+    */
 
     private SinglePlayerResults reactionTimes = SinglePlayerResults.getGame();
     private MultiplayerResults multiplayerResults = MultiplayerResults.getGame();
@@ -40,10 +47,10 @@ public class Statistics extends AppCompatActivity {
         reactionTimes.loadSinglePlayerResults(this.getBaseContext());
         multiplayerResults.loadMultiplayerResults(this.getBaseContext());
 
-        HashMap<String, Long> singlePlayerStats = reactionTimes.reactionCalculations();
+        HashMap<String, Long> singlePlayerResults = reactionTimes.reactionCalculations();
         HashMap<String, Integer> multiplayerStats = multiplayerResults.multiplayerStats();
 
-        displaySinglePlayerStats(singlePlayerStats);
+        displaySinglePlayerStats(singlePlayerResults);
         displayMultiplayerStats(multiplayerStats);
 
     }
@@ -128,7 +135,41 @@ public class Statistics extends AppCompatActivity {
     }
 
     public void emailResults() {
-        //How to email
+        HashMap<String, Long> singlePlayerResults = this.reactionTimes.reactionCalculations();
+        HashMap<String, Integer> multiplayerStats = this.multiplayerResults.multiplayerStats();
+
+        String email = "Reaction Timer:\n" +
+                "All Values: AVG - " + singlePlayerResults.get("avgAll").toString() +
+                " Max - " + singlePlayerResults.get("maxAll").toString() +
+                " Min - " + singlePlayerResults.get("minAll").toString() +
+                " Median - " + singlePlayerResults.get("medianAll").toString() + "\n" +
+                "Last 10 Values: AVG - " + singlePlayerResults.get("avg10").toString() +
+                " Max - " + singlePlayerResults.get("max10").toString() +
+                " Min - " + singlePlayerResults.get("min10").toString() +
+                " Median - " + singlePlayerResults.get("median10").toString() + "\n" +
+                "Last 100 Values: AVG - " + singlePlayerResults.get("avg100").toString() +
+                " Max - " + singlePlayerResults.get("max100").toString() +
+                " Min - " + singlePlayerResults.get("min100").toString() +
+                " Median - " + singlePlayerResults.get("median100").toString() + "\n" +
+                "Two Player Mode : \nPlayer 1 wins: " + multiplayerStats.get("p1m2").toString() +
+                " Player 2 wins: " + multiplayerStats.get("p2m2").toString() + "\n" +
+                "Three Player Mode : \nPlayer 1 wins: " + multiplayerStats.get("p1m3").toString() +
+                " Player 2 wins: " + multiplayerStats.get("p2m3").toString() + "\n" +
+                " Player 3 Wins:" + multiplayerStats.get("p3m3").toString() + "\n" +
+                "Four Player Mode : \nPlayer 1 wins: " + multiplayerStats.get("p1m4").toString() +
+                " Player 2 wins: " + multiplayerStats.get("p2m4").toString() + "\n" +
+                " Player 3 Wins:" + multiplayerStats.get("p3m4").toString() + "\n" +
+                " Player 4 wins:" + multiplayerStats.get("p4m4").toString() + "\n";
+
+        //From: http://stackoverflow.com/questions/2197741/how-can-i-send-emails-from-my-android-application, 2015-10-04
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:"));
+        intent.putExtra(Intent.EXTRA_EMAIL, "");
+        intent.putExtra(Intent.EXTRA_SUBJECT, "charlebo-reflex stats");
+        intent.putExtra(Intent.EXTRA_TEXT, email);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
     }
 
     @Override

@@ -29,7 +29,11 @@ import android.widget.Button;
  * Created by Jacob on 2015-10-01.
  */
 public class Multiplayer extends AppCompatActivity {
-
+    /*
+    Screen that allows the user to pick the number of players they want for the multiplayer mode
+    I decided to use a switch case to match the button ID with the mode the user wants since they
+    look nicer than a batch of if statements
+    */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -35,6 +35,11 @@ import java.util.Random;
  * Created by Jacob on 2015-10-01.
  */
 public class SinglePlayer extends AppCompatActivity {
+    /*
+    This is the activity for the single player mode. Unlike in the multiplayer we do not need
+    a specific class to handle the button because there is only one instance of it. This allows us
+    to directly store the date in our results class (again in a hash map to easily catalogue).
+    */
 
     protected long startTime;
     private int GREY = 0xff444444;

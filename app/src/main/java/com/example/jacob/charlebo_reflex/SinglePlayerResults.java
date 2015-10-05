@@ -39,6 +39,15 @@ import java.util.HashMap;
  * Created by Jacob on 2015-10-04.
  */
 public class SinglePlayerResults {
+    /*
+    This class handles the Hashmap used to store and save the data from the singleplayer timer
+    (shout out to the labs for the help with saving and loading with gson). It provides us with
+    many useful functions that we use when presenting the stats to the user.
+    I chose a Hashmap because it seemed to be the easiest way to store data with a corresponding
+    string that I could use to call it later. After calculations this allowed me to safely and
+    easily store and retrieve my single player results of average, min, max, and median.
+    */
+
 
     private String singlePlayerFile = "singlePlayerResults";
     private ArrayList<Long> singlePlayerResults = new ArrayList<>();
@@ -114,7 +123,7 @@ public class SinglePlayerResults {
             numReactionTimes = size;
         }
         ArrayList<Long> subList = new ArrayList<>(singlePlayerResults.subList(size-numReactionTimes, size));
-        return Collections.min(subList);
+        return Collections.max(subList);
     }
     public Long min(int numReactionTimes){
         int size = singlePlayerResults.size();

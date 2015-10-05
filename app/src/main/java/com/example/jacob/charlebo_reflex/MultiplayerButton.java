@@ -27,6 +27,13 @@ import android.widget.Button;
  * Created by Jacob on 2015-10-02.
  */
 public class MultiplayerButton {
+    /*
+    Allows easier handling of multiplayer results for the 9 buttons and 3 different modes
+    Sends the parameters it is given to our results to be stored in our hash maps.
+    This class took out the redundancy we would have had if we implemented it separately into each
+    of the three multiplayer modes. This class also calls the alert dialog to declare the winner,
+    another redundancy of our code we have avoid.
+    */
 
     //Handy variables we need to properly store data
     private Button button;
